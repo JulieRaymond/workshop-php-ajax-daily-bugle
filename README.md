@@ -26,8 +26,8 @@ So now it's your job to fix it ! Your goal: Pick a random headline without reloa
 
 3. Once the route is ready, let's go to the client side. In `public\assets\js\script.js`, you'll find a `//TODO 1 : Get a random article`, this is the part of the code wich will be triggered on the click of the "Change the headline" button. 
 This is where you have to work to get to contact the route `ajax/random/article`, get the data of the headline and update the homepage.
-* Hint 1 : Use `fetch()` in js to to call the route
-* Hint 2 : When you have the data, use the function updateHeadline() which will update the page for you.
+* Hint 1 : Use `fetch()` in JS to to call the route
+* Hint 2 : When you have the data, use the function `updateHeadline()` which will update the page for you.
 4. Try it. 
 
 ## Add a menu to select a headline from specific keywords
@@ -40,7 +40,6 @@ First prepare this route to return all the articles wich contains in the title t
 * Hint 1 : You can use `stripos()` in PHP
 2. Once the route is good. Go back in `script.js` to call it and feed the `<ul id="resultList">` with the titles of articles matched.
 
-3. Now, make these title clickable and catch the clicc to update the homepage with the right headline
+3. Now, make these title clickable and catch the clic to update the homepage with the right headline
 * Hint 1 : To keep it simple, rember you have a `onclick` attribute where you can call a JS function 
 * Hint 2 : to hide the offcanvas menu use `bootstrap.Offcanvas.getInstance(document.getElementById('searchMenu')).hide()`
-
