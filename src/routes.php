@@ -8,8 +8,8 @@
 // e.g route '/item/edit?id=1' will execute $itemController->edit(1)
 return [
     '' => ['HomeController', 'index',],
-    'ajax/articles' => ['AjaxController', 'articlesJson',],
-    'ajax/random/article' => ['AjaxController', 'randomArticleJson',],
-    'ajax/search/articles' => ['AjaxController', 'searchArticlesJson',['search']],
-    'ajax/article' => ['AjaxController', 'getArticleByIdJson',['id']],
+    'ajax/articles' => ['AjaxController', 'jsonArticles',],
+    'ajax/random/article' => ['AjaxController', 'randomJsonArticle',],
+    'ajax/search/articles' => ['AjaxController', 'searchJsonArticles',['search']],
+    'ajax/article' => ['AjaxController', 'getJsonArticleById',['id']],
 ];

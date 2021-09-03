@@ -7,7 +7,7 @@ use App\Model\ArticleManager;
 class AjaxController extends AbstractController
 {
 
-    public function articlesJson(): string
+    public function jsonArticles(): string
     {
         $articleManager = new ArticleManager();
         $articles = $articleManager->getAllArticles();
@@ -15,19 +15,19 @@ class AjaxController extends AbstractController
         return json_encode($articles);
     }
 
-    public function randomArticleJson(): string
+    public function randomJsonArticle(): string
     {
         //TODO
         return "";
     }
 
-    public function searchArticlesJson(string $search): string
+    public function searchJsonArticles(string $search): string
     {
         //TODO
         return $search;
     }
 
-    public function getArticleByIdJson(int $id): string
+    public function getJsonArticleById(int $id): string
     {
         //TODO
         return "$id";

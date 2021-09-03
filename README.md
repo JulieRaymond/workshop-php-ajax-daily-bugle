@@ -20,8 +20,8 @@ So now it's your job to fix it ! Your goal: Pick a random headline without reloa
 ## Get a random headline without reloading the page
 
 1. First, you have to prepare the server side. Take a look at `routes.php`, you'll see you already have the route `ajax/random/article`. Try it. Yes, nothing...
-2. To fix it, go to `AjaxController.php` and complete the funtion randomArticleJson(). This function should return the data of a random article in JSON (only one !). 
-* Hint 1 : look at articlesJson() to see how to get articles and return JSON.
+2. To fix it, go to `AjaxController.php` and complete the funtion `randomJsonArticle()`. This function should return the data of a random article in JSON (only one !). 
+* Hint 1 : look at `jsonArticles()` to see how to get articles and return JSON.
 * Hint 2 : `rand()` can help to select a random element in a array
 
 3. Once the route is ready, let's go to the client side. In `public\assets\js\script.js`, you'll find a `//TODO 1 : Get a random article`, this is the part of the code wich will be triggered on the click of the "Change the headline" button. 
