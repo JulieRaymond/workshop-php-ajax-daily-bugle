@@ -10,6 +10,6 @@ return [
     '' => ['HomeController', 'index',],
     'ajax/articles' => ['AjaxController', 'articlesJson',],
     'ajax/random/article' => ['AjaxController', 'randomArticleJson',],
-    'ajax/search/articles' => ['AjaxController', 'searchArticlesJson',['search']],
-    'ajax/article' => ['AjaxController', 'getArticleByIdJson',['id']],
+    'ajax/search/articles' => ['AjaxController', 'searchArticlesJson', ['search']],
+    'ajax/article' => ['AjaxController', 'getArticleByIdJson', ['id']],
 ];

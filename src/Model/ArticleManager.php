@@ -6,7 +6,6 @@ use DateTime;
 
 class ArticleManager
 {
-
     private string $file = "/../articles.csv";
 
     public function getAllArticles(): array
