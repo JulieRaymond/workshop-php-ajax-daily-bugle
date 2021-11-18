@@ -46,24 +46,25 @@ define('APP_DB_PASSWORD', 'your_db_password');
 
 3. Once the route is ready, let's go to the client side. In `public\assets\js\script.js`, you'll find a `//TODO 1 : Get a random article`, this is the part of the code which will be triggered on the click of the "Change the headline" button. 
 
-This is where you have to work to get to contact the route `ajax/random/article`, get the data of the headline and update the homepage.
-* Hint 1 : Use `fetch()` in js to to call the route (https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
-* Hint 2 : When you have the data, use the function updateHeadline(title, picture, content) which will update the page for you.
-4. Try it. 
+This is where you have to work to 1) call the route `ajax/random/article`, 2) get the data of the headline and 3) update the homepage.
+* Hint 1 : Use `fetch()` in JS to to call the route (https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch) and manage the response.
+* Hint 2 : When you have the data, use the existing function `updateHeadline(title, picture, content)` which will update the DOM page for you.
+
+4. Try it by clicking on the "Change the headline" button. The article should be randomly updated without refresh the page.
 
 ## Add a menu to select a headline from specific keywords
 
-1. Now we need to be able to select a specific article by a keyword of its title. 
+1. We now need to be able to select a specific article by a keyword within its title. 
 The previous developer started to implement the feature in the div `searchMenu` from `index.html.twig`. He also let a `//TODO 2` in `script.js` to trigger some code when type something in the input.
 
-In `routes.php` there is `ajax/search/articles`. Be careful, this route take one parameter.
+In `routes.php` there is `ajax/search/articles`. Be careful, this route take one parameter `search` in the query string.
 First prepare this route to return all the articles wich contains in the title the word passed in parameter. 
 
 It should look something like that http://localhost:8000/ajax/search/articles?search=spider <= here we search all the articles which contains the word "spider" in their title.
 
-* Hint 1 : You'll need a new function in the `ArticleManager`
-* Hint 2 : Your controller should respond a collection of article in JSON
-* Result : For it shoul respond :
+* Hint 1 : You'll need a new method in the `ArticleManager` and use the LIKE keyword in SQL.
+* Hint 2 : Your controller should respond an array of article in JSON
+* For search 'spider',  it should respond :
 
 ```
 [
@@ -87,8 +88,10 @@ It should look something like that http://localhost:8000/ajax/search/articles?se
 ```
 
 
-2. Once the route is good. Go back in `script.js` to call it and feed the `<ul id="resultList">` with the titles of articles matched.
+2. Once the route is good, go back in `script.js`. There is another event listener on the input with `id="searchHeadline"`. The event listnened is `input`, which means that the code is call each time you change a character in the input tag. 
 
+Use fetch to get the articles containing the search value in their title, and update the DOM to add these matching titles in `<li>` within the `<ul id="resultList">`.
+* HINT : make sure the ul content is resetted between each fetch.
 3. Now, make these titles clickables and send to route `/article`
 * Hint 1 : Remember to look at the route in `routes.php` to know what this route needs to work.
 
