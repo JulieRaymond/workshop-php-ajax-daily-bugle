@@ -21,7 +21,6 @@ class HomeController extends AbstractController
     {
         $articleManager = new ArticleManager();
         $article = $articleManager->selectOneById($id);
-
-        return $this->twig->render('Home/show.html.twig', ['article' => $article]);
+        return json_encode($article);
     }
 }

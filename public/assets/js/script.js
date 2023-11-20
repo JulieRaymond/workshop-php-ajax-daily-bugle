@@ -1,6 +1,8 @@
 function updateHeadline(title, picture, content) {
   document.getElementById("headlineTitle").innerHTML = title;
-  document.getElementById("headlinePicture").setAttribute("src", picture);
+  document
+    .getElementById("headlinePictureDetails")
+    .setAttribute("src", picture);
   document.getElementById("headlineContent").innerHTML = content;
 }
 
@@ -39,11 +41,16 @@ document
           titleLink.addEventListener("click", function (event) {
             event.preventDefault();
             // TODO: Handle the click event, e.g., fetch article details and display them
-            fetch(`/api/articles/${article.id}`)
+            fetch(`/article/${article.id}`)
               .then((response) => response.json())
               .then((articleDetails) => {
-                // Assuming you have a function to display article details
-                displayArticleDetails(articleDetails);
+                console.log("Article details:", articleDetails);
+
+                updateHeadline(
+                  articleDetails.title,
+                  articleDetails.picture,
+                  articleDetails.content
+                );
               })
               .catch((error) =>
                 console.error("Error fetching article details:", error)
