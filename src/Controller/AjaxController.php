@@ -23,19 +23,28 @@ class AjaxController extends AbstractController
 
     public function getRandomArticle(): string
     {
-        //TODO
-        return "";
+        //TODO1
+        $articleManager = new ArticleManager();
+        $randomArticle = $articleManager->selectRandomOne();
+
+        return json_encode($randomArticle);
     }
 
     public function searchArticles(string $search): string
     {
-        //TODO
-        return "$search";
+        //TODO2
+        $articleManager = new ArticleManager();
+        $searchResults = $articleManager->searchByTitle($search);
+
+        return json_encode($searchResults);
     }
 
     public function getArticleById(int $id): string
     {
-        //TODO
-        return "$id";
+        //TODO3
+        $articleManager = new ArticleManager();
+        $article = $articleManager->selectOneById($id);
+
+        return json_encode($article);
     }
 }
